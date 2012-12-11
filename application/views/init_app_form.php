@@ -3,15 +3,17 @@
   <head>
     <title>Biospecimen Archive Facility - Binghamton University</title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="<?=base_url()?>css/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
   <body>
     <h1>Initial Application Form.</h1>
-    <?php $errors = validation_errors(); 
-    if(strlen($errors) > 0) {
+    <?php 
+    $errors = validation_errors(); 
+    $errors2 = $this->upload->display_errors();
+    if(strlen($errors) > 0 || strlen($errors2) > 0) {
     ?>
       <div class="well">
-        <?=$errors?>
+        <?=$errors?><br><?=$errors2?>
       </div>
     <?php 
     }
@@ -59,7 +61,7 @@
             CV of Principle Investigator
           </td>
           <td colspan="1">
-            <input type="file" id="cvFile"/>
+            <input type="file" id="cvFile" name="cvFile"/>
           </td>
           <td colspan="2">
             File Format (word or pdf)
@@ -70,7 +72,7 @@
             Research Synopsis
           </td>
           <td colspan="1">
-            <input type="file" id="researchFile"/>
+            <input type="file" id="researchFile" name="researchFile"/>
           </td>
           <td colspan="2">
             File Format (word or pdf)
@@ -102,7 +104,7 @@
         </tr>
       </table>
     </form>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<?=base_url()?>js/jquery.js"></script>
+    <script src="<?=base_url()?>js/bootstrap.min.js"></script>
   </body>
 </html>

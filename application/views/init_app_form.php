@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap 101 Template</title>
+    <title>Biospecimen Archive Facility - Binghamton University</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
@@ -10,7 +10,7 @@
     <?php $errors = validation_errors(); 
     if(strlen($errors) > 0) {
     ?>
-      <div>
+      <div class="well">
         <?=$errors?>
       </div>
     <?php 
@@ -19,7 +19,7 @@
     <?php
     $attributes = array('class' => 'form', 'id' => 'myform', 'method' => 'post');
     ?>
-      <?=form_open_multipart('submit_init_form', $attributes)?>
+      <?=form_open_multipart('main', $attributes)?>
       <table class="table">
         <tr>
           <td colspan="1">

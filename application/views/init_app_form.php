@@ -7,20 +7,32 @@
   </head>
   <body>
     <h1>Initial Application Form.</h1>
-    <form class="form" enctype="multipart/form-data" method="post">
+    <?php $errors = validation_errors(); 
+    if(strlen($errors) > 0) {
+    ?>
+      <div>
+        <?=$errors?>
+      </div>
+    <?php 
+    }
+    ?>
+    <?php
+    $attributes = array('class' => 'form', 'id' => 'myform', 'method' => 'post');
+    ?>
+      <?=form_open_multipart('submit_init_form', $attributes)?>
       <table class="table">
         <tr>
           <td colspan="1">
             Principal Investigator
           </td>
           <td colspan="1">
-            <input type="textbox" id="fname" name="fname" placeholder="First Name"/>
+            <input type="textbox" id="fname" name="fname" placeholder="First Name" value="<?php echo set_value('fname', ''); ?>"/>
           </td>
           <td colspan="1">
-            <input type="textbox" id="fname" name="fname" placeholder="Last Name"/>
+            <input type="textbox" id="lname" name="lname" placeholder="Last Name" value="<?php echo set_value('lname', ''); ?>"/>
           </td>
           <td colspan="1">
-            <input type="textbox" id="lanme" name="lanme" placeholder="Title"/>
+            <input type="textbox" id="tname" name="tname" placeholder="Title" value="<?php echo set_value('tname', ''); ?>"/>
           </td>
         </tr>
         <tr>
@@ -28,7 +40,7 @@
             Institution
           </td>
           <td colspan="3">
-            <input type="textbox" id="institution" name="institution" />
+            <input type="textbox" id="institution" name="institution"  value="<?php echo set_value('institution', ''); ?>"/>
           </td>
         </tr>
         <tr>
@@ -36,10 +48,10 @@
             Contact Information
           </td>
           <td colspan="1">
-            <input type="textbox" id="emailid" name="emailid" placeholder="emailid" />
+            <input type="textbox" id="emailid" name="emailid" placeholder="Email-ID"  value="<?php echo set_value('emailid', ''); ?>"/>
           </td>
-          <td colspan="1">
-            <input type="textbox" id="" name="" placeholder="phone-number" />
+          <td colspan="2">
+            <input type="textbox" id="phno" name="phno" placeholder="Phone  number with area code"  value="<?php echo set_value('phno', ''); ?>"/>
           </td>
         </tr>
         <tr>
@@ -69,7 +81,7 @@
             Breif Description of your Research Sample Needs (sample type,number,etc)
           </td>
           <td colspan="3">
-            <textarea id="desc" name="desc" cols="100%" rows="6" ></textarea>
+            <textarea id="desc" name="desc" cols="100%" rows="6" ><?php echo set_value('desc', ''); ?></textarea>
           </td>
         </tr>
         <tr>
@@ -77,7 +89,7 @@
             Other Pertinent Information
           </td>
           <td colspan="3">
-            <textarea id="otherDesc" name="otherDesc" cols="100%"></textarea>
+            <textarea id="otherDesc" name="otherDesc" cols="100%"><?php echo set_value('otherDesc', ''); ?></textarea>
           </td>
         </tr>
         <tr>

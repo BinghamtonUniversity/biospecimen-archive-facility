@@ -10,6 +10,8 @@ class Main extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->helper('url');
 		$this->load->library('session');
+
+
 		$this->load->library('email');
 	}
 
@@ -61,23 +63,48 @@ class Main extends CI_Controller {
 				else {
 					//process data here
 					$file2Return = $this->upload->data();
+					mail('adarshakb@gmail.com', 'lalal', 'I am here');
+					
+					$config['protocol'] = 'sendmail';
+					$config['mailpath'] = '/usr/sbin/sendmail';
+					$config['charset'] = 'iso-8859-1';
+					$config['wordwrap'] = TRUE;
+					$config['mailtype'] = 'html';
 
-					$this->email->from($this->input->post('emailid'), $this->input->post('tname').' '.$this->input->post('fname').' '.$this->input->post('lname'));
+					$this->email->initialize($config);
+
+
+					$this->email->from('no-reply@binghamton.edu', $this->input->post('tname').' '.$this->input->post('fname').' '.$this->input->post('lname'));
 					$this->email->to('adarshakb@gmail.com'); 
 					
 					$this->email->subject('Biospeciment archive facility');
-					$this->email->message('From: '.$this->input->post('tname',TRUE).' '.$this->input->post('fname',TRUE).' '.$this->input->post('lname',TRUE).
-										'\nInstitution: '.$this->input->post('institution').
-										'\nContact Informtion:'.
-										'\nPhone: '.$this->input->post('phno').
-										'\nEmail: '.$this->input->post('emailid').
-										'\nBreif Description:\n'.$this->input->post('desc').
-										'\nOther Information:\n'.$this->input->post('OtherDesc'));	
+					$this->email->message('Name: '.$this->input->post('tname',TRUE).' '.$this->input->post('fname',TRUE).' '.$this->input->post('lname',TRUE).
+										'<br/>Institution: '.$this->input->post('institution').
+										'<br/>Contact Informtion:'.
+										'<br/>Phone: '.$this->input->post('phno').
+										'<br/>Email: '.$this->input->post('emailid').
+										'<br/>Breif Description:<br/>'.$this->input->post('desc').
+										'<br/>Other Information:<br/>'.$this->input->post('OtherDesc'));	
 
 					$this->email->attach($file1Return['full_path']);
 					$this->email->attach($file2Return['full_path']);
 
-					$this->email->send();
+					if( $this->email->send() == false ) {
+						//error
+						echo $this->email->print_debugger(); exit;
+					}
+
+					$this->email->clear();
+
+					$this->email->from('biospecimenarchive@binghamton.edu','Biospecimen Archive Facility - Binghamton University');
+					$this->email->to($this->input->post('emailid'));
+					$this->email->subject('Biospecimen Archive Facility - Binghamton University');
+					$this->email->message(file_get_contents('./application/views/responseEmail.html'));
+
+					if( $this->email->send() == false ) {
+						//error
+						echo $this->email->print_debugger(); exit;
+					}
 
 					@unlink($this->session->userdata('session_id').'_2');
 					$this->load->view('init_app_success');

@@ -10,6 +10,7 @@ class Main extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->helper('url');
 		$this->load->library('session');
+		$this->load->library('email');
 	}
 
 	public function index() 
@@ -46,17 +47,37 @@ class Main extends CI_Controller {
 		}
 		else
 		{
+
 			if($this->upload->do_upload('cvFile') === FALSE) {
 				$this->load->view('init_app_form');
 			}
 			else {
+				$file1Return = $this->upload->data();
+
 				$this->upload->initialize($config2);
 				if($this->upload->do_upload('researchFile') === FALSE) {
 					$this->load->view('init_app_form');
 				}
 				else {
 					//process data here
+					$file2Return = $this->upload->data();
 
+					$this->email->from($this->input->post('emailid'), $this->input->post('tname').' '.$this->input->post('fname').' '.$this->input->post('lname'));
+					$this->email->to('adarshakb@gmail.com'); 
+					
+					$this->email->subject('Biospeciment archive facility');
+					$this->email->message('From: '.$this->input->post('tname',TRUE).' '.$this->input->post('fname',TRUE).' '.$this->input->post('lname',TRUE).
+										'\nInstitution: '.$this->input->post('institution').
+										'\nContact Informtion:'.
+										'\nPhone: '.$this->input->post('phno').
+										'\nEmail: '.$this->input->post('emailid').
+										'\nBreif Description:\n'.$this->input->post('desc').
+										'\nOther Information:\n'.$this->input->post('OtherDesc'));	
+
+					$this->email->attach($file1Return['full_path']);
+					$this->email->attach($file2Return['full_path']);
+
+					$this->email->send();
 
 					@unlink($this->session->userdata('session_id').'_2');
 					$this->load->view('init_app_success');

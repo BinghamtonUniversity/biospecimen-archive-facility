@@ -63,7 +63,7 @@ class Main extends CI_Controller {
 				else {
 					//process data here
 					$file2Return = $this->upload->data();
-					mail('adarshakb@gmail.com', 'lalal', 'I am here');
+					//mail('adarshakb@gmail.com', 'lalal', 'I am here');
 					
 					
 					$this->config->load('email');

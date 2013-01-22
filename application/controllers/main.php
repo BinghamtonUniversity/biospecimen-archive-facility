@@ -65,17 +65,14 @@ class Main extends CI_Controller {
 					$file2Return = $this->upload->data();
 					mail('adarshakb@gmail.com', 'lalal', 'I am here');
 					
-					$config['protocol'] = 'sendmail';
-					$config['mailpath'] = '/usr/sbin/sendmail';
-					$config['charset'] = 'iso-8859-1';
-					$config['wordwrap'] = TRUE;
-					$config['mailtype'] = 'html';
+					
+					$this->config->load('email');
 
-					$this->email->initialize($config);
+					$this->email->initialize($this->config->item('email_conf'));
 
 
-					$this->email->from('no-reply@binghamton.edu', $this->input->post('tname').' '.$this->input->post('fname').' '.$this->input->post('lname'));
-					$this->email->to('adarshakb@gmail.com'); 
+					$this->email->from($this->config->item('email_from'), $this->input->post('tname').' '.$this->input->post('fname').' '.$this->input->post('lname'));
+					$this->email->to($this->config->item('email_to'));
 					
 					$this->email->subject('Biospeciment archive facility');
 					$this->email->message('Name: '.$this->input->post('tname',TRUE).' '.$this->input->post('fname',TRUE).' '.$this->input->post('lname',TRUE).

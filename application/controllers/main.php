@@ -10,6 +10,7 @@ class Main extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->helper('url');
 		$this->load->library('session');
+		$this->load->helper('file');
 
 
 		$this->load->library('email');
@@ -103,10 +104,10 @@ class Main extends CI_Controller {
 						echo $this->email->print_debugger(); exit;
 					}
 
-					@unlink($this->session->userdata('session_id').'_2');
+					@delete_files($this->session->userdata('session_id').'_2');
 					$this->load->view('init_app_success');
 				}
-				@unlink($this->session->userdata('session_id').'_1');
+				@delete_files($this->session->userdata('session_id').'_1');
 			}
 			
 		}

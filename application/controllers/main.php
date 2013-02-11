@@ -112,4 +112,8 @@ class Main extends CI_Controller {
 			
 		}
 	}
+
+	public function final_application() {
+		$this->load->view('final_app_form');
+	}
 }

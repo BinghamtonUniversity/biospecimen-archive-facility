@@ -14,7 +14,6 @@ class Main extends CI_Controller {
 
 
 		$this->load->library('email');
-		$this->config->load('email');
 	}
 
 	public function index() 
@@ -67,6 +66,8 @@ class Main extends CI_Controller {
 					$file2Return = $this->upload->data();
 					//mail('adarshakb@gmail.com', 'lalal', 'I am here');
 
+					$this->config->load('email');
+
 					$this->email->initialize($this->config->item('email_conf'));
 
 
@@ -89,8 +90,6 @@ class Main extends CI_Controller {
 						//error
 						echo $this->email->print_debugger(); exit;
 					}
-
-					$this->email->clear();
 
 					$this->email->from('biospecimenarchive@binghamton.edu','Biospecimen Archive Facility - Binghamton University');
 					$this->email->to($this->input->post('emailid'));
@@ -132,6 +131,9 @@ class Main extends CI_Controller {
 		else
 		{
 			$this->email->clear();
+
+			$this->config->load('email');
+			$this->email->initialize($this->config->item('email_conf'));
 
 			$this->email->from('biospecimenarchive@binghamton.edu','Biospecimen Archive Facility - Binghamton University');
 			$this->email->to($this->input->post('emailid'));

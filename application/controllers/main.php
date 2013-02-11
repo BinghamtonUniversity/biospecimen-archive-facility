@@ -14,6 +14,7 @@ class Main extends CI_Controller {
 
 
 		$this->load->library('email');
+		$this->config->load('email');
 	}
 
 	public function index() 
@@ -65,9 +66,6 @@ class Main extends CI_Controller {
 					//process data here
 					$file2Return = $this->upload->data();
 					//mail('adarshakb@gmail.com', 'lalal', 'I am here');
-					
-					
-					$this->config->load('email');
 
 					$this->email->initialize($this->config->item('email_conf'));
 
@@ -97,7 +95,7 @@ class Main extends CI_Controller {
 					$this->email->from('biospecimenarchive@binghamton.edu','Biospecimen Archive Facility - Binghamton University');
 					$this->email->to($this->input->post('emailid'));
 					$this->email->subject('Biospecimen Archive Facility - Binghamton University');
-					$this->email->message(file_get_contents('./application/views/responseEmail.html'));
+					$this->email->message($this->load->view('responseEmail.html','',TRUE));
 
 					if( $this->email->send() == false ) {
 						//error
@@ -114,6 +112,39 @@ class Main extends CI_Controller {
 	}
 
 	public function final_application() {
-		$this->load->view('final_app_form');
+
+		$this->form_validation->set_rules('fname','First-name','xss_clean|trim|required|max_length[100]');
+		$this->form_validation->set_rules('lname','Last-name','xss_clean|trim|required|max_length[100]');
+		$this->form_validation->set_rules('tname','Title','xss_clean|trim|max_length[10]');
+		$this->form_validation->set_rules('institution','Institution name','xss_clean|trim|required|max_length[500]');
+		$this->form_validation->set_rules('emailid','Email ID','xss_clean|trim|required|max_length[150]|valid_email');
+		$this->form_validation->set_rules('phno','Phone number','xss_clean|trim|required|max_length[20]');
+		$this->form_validation->set_rules('address1','Shipping information','xss_clean|trim|required');
+		$this->form_validation->set_rules('address2','Shipping information','xss_clean|trim');
+		$this->form_validation->set_rules('fundingsource','Funding Source','xss_clean|trim|required');
+		$this->form_validation->set_rules('fundingAmountDuration','Funding Amount/Duration','xss_clean|trim|required');
+		$this->form_validation->set_rules('otherDesc','Other Pertinent information','xss_clean|trim');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('final_app_form');
+		}
+		else
+		{
+			$this->email->clear();
+
+			$this->email->from('biospecimenarchive@binghamton.edu','Biospecimen Archive Facility - Binghamton University');
+			$this->email->to($this->input->post('emailid'));
+			$this->email->subject('Biospecimen Archive Facility - Binghamton University');
+			$this->email->message($this->load->view('responseEmailForFinalApplicationForm.html','',TRUE));
+
+			if( $this->email->send() == false ) {
+				//error
+				echo $this->email->print_debugger(); exit;
+			}
+
+			$this->load->view('final_app_form_success');
+		}
+
 	}
 }

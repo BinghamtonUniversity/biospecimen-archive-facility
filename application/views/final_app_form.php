@@ -7,6 +7,8 @@
   </head>
   <body>
     <h1>Final Application Form.</h1>
+    <em>(<u>REMINDER</u>: In addtion to the form submissions, an IRB letter of approval and an MTA must be completed/recieved)</em>
+    <br>
     <?php 
     $errors = validation_errors(); 
     if(strlen($errors) > 0) {

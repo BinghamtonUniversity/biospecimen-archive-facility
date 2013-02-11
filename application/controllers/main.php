@@ -81,7 +81,7 @@ class Main extends CI_Controller {
 										'<br/>Phone: '.$this->input->post('phno').
 										'<br/>Email: '.$this->input->post('emailid').
 										'<br/>Breif Description:<br/>'.$this->input->post('desc').
-										'<br/>Other Information:<br/>'.$this->input->post('OtherDesc'));	
+										'<br/>Other Information:<br/>'.$this->input->post('otherDesc'));	
 
 					$this->email->attach($file1Return['full_path']);
 					$this->email->attach($file2Return['full_path']);
@@ -135,6 +135,25 @@ class Main extends CI_Controller {
 			$this->config->load('email');
 			$this->email->initialize($this->config->item('email_conf'));
 
+			$this->email->from($this->config->item('email_from'), $this->input->post('tname').' '.$this->input->post('fname').' '.$this->input->post('lname'));
+			$this->email->to($this->config->item('email_to'));
+			
+			$this->email->subject('Biospeciment archive facility');
+			$this->email->message('Name: '.$this->input->post('tname',TRUE).' '.$this->input->post('fname',TRUE).' '.$this->input->post('lname',TRUE).
+								'<br/>Institution: '.$this->input->post('institution').
+								'<br/>Contact Informtion:'.
+								'<br/>Phone: '.$this->input->post('phno').
+								'<br/>Email: '.$this->input->post('emailid').
+								'<br/>Funding:<br/> Funding source:'.$this->input->post('fundingsource').'<br/> Funding Amount/Duration:'.$this->input->post('fundingAmountDuration').
+								'<br/>Shipping Information:'.$this->input->post('address1').'<br/>'.$this->input->post('address2').
+								'<br/>Other Information:<br/>'.$this->input->post('otherDesc'));
+
+			if( $this->email->send() == false ) {
+				//error
+				echo $this->email->print_debugger(); exit;
+			}
+
+
 			$this->email->from('biospecimenarchive@binghamton.edu','Biospecimen Archive Facility - Binghamton University');
 			$this->email->to($this->input->post('emailid'));
 			$this->email->subject('Biospecimen Archive Facility - Binghamton University');
@@ -144,7 +163,7 @@ class Main extends CI_Controller {
 				//error
 				echo $this->email->print_debugger(); exit;
 			}
-
+			
 			$this->load->view('final_app_form_success');
 		}
 

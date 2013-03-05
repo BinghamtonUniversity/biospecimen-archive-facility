@@ -293,7 +293,7 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_cookie_name' = The cookie name
 | 'csrf_expire' = The number in seconds the token should expire.
 */
-$config['csrf_protection'] = FALSE;
+$config['csrf_protection'] = TRUE;
 $config['csrf_token_name'] = 'csrf_biospecimen-archive-facility';
 $config['csrf_cookie_name'] = 'csrf_cookie_biospecimen-archive-facility';
 $config['csrf_expire'] = 900; // 15mins

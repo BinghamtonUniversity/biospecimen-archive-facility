@@ -1,8 +1,6 @@
 <?php
 class Main extends CI_Controller {
 
-	private $_sessionID;
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -11,13 +9,7 @@ class Main extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->helper('url');
-
-		$this->_sessionID = session_id();
-		
-		if(!$this->_sessionID) {
-			$this->load->library('session');
-			$this->_sessionID = false;
-		}
+		$this->load->library('session');
 
 		$this->load->helper('file');
 
@@ -38,8 +30,8 @@ class Main extends CI_Controller {
 		$this->form_validation->set_rules('desc','Brief Description of your research','xss_clean|trim|required');
 		$this->form_validation->set_rules('otherDesc','Other Pertinent information','xss_clean|trim');
 
-		$fileName1 = $this->_sessionID !== false ? $this->_sessionID.'_1' : $this->session->userdata('session_id').'_1';
-		$fileName2 = $this->_sessionID !== false ? $this->_sessionID.'_2' : $this->session->userdata('session_id').'_2';
+		$fileName1 = $this->session->userdata('session_id').'_1';
+		$fileName2 = $this->session->userdata('session_id').'_2';
 
 		$config['upload_path'] 		= './tmp_holder/';
 		$config['allowed_types']	= 'doc|docx|pdf|rtf';

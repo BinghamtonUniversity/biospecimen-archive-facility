@@ -1,6 +1,8 @@
 <?php
 class Main extends CI_Controller {
 
+	private $_sessionID;
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -9,7 +11,14 @@ class Main extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->helper('url');
-		$this->load->library('session');
+
+		$this->_sessionID = session_id();
+		
+		if(!$this->_sessionID) {
+			$this->load->library('session');
+			$this->_sessionID = false;
+		}
+
 		$this->load->helper('file');
 
 
@@ -29,16 +38,19 @@ class Main extends CI_Controller {
 		$this->form_validation->set_rules('desc','Brief Description of your research','xss_clean|trim|required');
 		$this->form_validation->set_rules('otherDesc','Other Pertinent information','xss_clean|trim');
 
+		$fileName1 = $this->_sessionID !== false ? $this->_sessionID.'_1' : $this->session->userdata('session_id').'_1';
+		$fileName2 = $this->_sessionID !== false ? $this->_sessionID.'_2' : $this->session->userdata('session_id').'_2';
+
 		$config['upload_path'] 		= './tmp_holder/';
 		$config['allowed_types']	= 'doc|docx|pdf|rtf';
 		$config['max_size']			= '10240';
-		$config['file_name'] 		= $this->session->userdata('session_id').'_1';
+		$config['file_name'] 		= $fileName1;
 		$config['overwrite'] 		= TRUE;
 
 		$config2['upload_path'] 	= './tmp_holder/';
 		$config2['allowed_types'] 	= 'doc|docx|pdf|rtf';
 		$config2['max_size']		= '10240';
-		$config2['file_name'] 		= $this->session->userdata('session_id').'_2';
+		$config2['file_name'] 		= $fileName2;
 		$config2['overwrite'] 		= TRUE;
 
 		$this->load->library('upload',$config);
@@ -101,10 +113,10 @@ class Main extends CI_Controller {
 						echo $this->email->print_debugger(); exit;
 					}
 
-					@delete_files($this->session->userdata('session_id').'_2');
+					@delete_files($fileName2);
 					$this->load->view('init_app_success');
 				}
-				@delete_files($this->session->userdata('session_id').'_1');
+				@delete_files($fileName1);
 			}
 			
 		}

@@ -169,8 +169,8 @@ class Main extends CI_Controller {
 				//error
 				echo $this->email->print_debugger(); exit;
 			}
+			$this->final_application_success();
 		}
-		$this->final_application_success();
 	}
 
 	public function final_application_success() {

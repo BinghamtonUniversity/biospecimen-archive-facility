@@ -80,7 +80,7 @@
     </ul>
 <!-- /com.omniupdate.div --></div></div><div class="pageWidth"><div class="mainNavOuter"><!-- com.omniupdate.div path="/biospecimen-archive-facility/forms/hnav.html" label="hnav" --><!-- com.omniupdate.editor csspath="/z-omniupdate/edit/department-header/hnav.css" width="1200" -->
 <ul class="inlineList mainNav">
-  <li class="first"><a title="Item One" href="#">Item One</a></li>
+  <!-- <li class="first"><a title="Item One" href="#">Item One</a></li>
   <li><a title="Item Two" href="#">Item Two</a></li>
   <li><a title="Item Three" href="#">Item Three</a></li>
   <li><a title="Item Four" href="#">Item Four</a></li>
@@ -89,27 +89,28 @@
   <li><a title="Item Seven" href="#">Item Seven</a></li>
   <li><a title="Item Eight" href="#">Item Eight</a></li>
   <li><a title="Item Nine" href="#">Item Nine</a></li>
-  <li class="last"><a title="Item Ten" href="#">Item Ten</a></li>
+  <li class="last"><a title="Item Ten" href="#">Item Ten</a></li> -->
 </ul><!-- /com.omniupdate.div --></div></div><div class="contentWidth bodyContent"><div class="contentBanner"/><div class="content contentMinimal"><div class="bcOuter"><!-- com.omniupdate.div path="/z-omniupdate/fakes/breadcrumb.html" label="breadcrumb" --><ul class="bc inlineList"><li><a href="/biospecimen-archive-facility/">biospecimen archive facility</a></li><li>|</li><li><a href="/biospecimen-archive-facility/forms/">forms</a></li></ul><!-- /com.omniupdate.div --></div>
     <!-- com.omniupdate.div label="content" group="Everyone" button="787" break="break" -->
     <!-- com.omniupdate.editor csspath="/z-omniupdate/edit/department-content2/content.css" cssmenu="/z-omniupdate/edit/edit-main.txt" width="960" -->
     <div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-</div><h1>Initial Application Form.</h1>
+</div>    <h1>Final Application Form.</h1>
+    <em>(<u>REMINDER</u>: In addtion to the form submissions, an IRB letter of approval and an MTA must be completed/recieved)</em>
+    <br>
     <?php 
     $errors = validation_errors(); 
-    $errors2 = $this->upload->display_errors();
-    if(strlen($errors) > 0 || strlen($errors2) > 0) {
+    if(strlen($errors) > 0) {
     ?>
       <div class="alert">
-        <?=$errors?><br><?=$errors2?>
+        <?=$errors?>
       </div>
     <?php 
     }
     ?>
     <?php
-    $attributes = array('class' => 'form', 'id' => 'myform', 'method' => 'post');
+    $attributes = array('class' => 'form', 'id' => 'my_final_form', 'method' => 'post');
     ?>
-      <?=form_open_multipart('main', $attributes)?>
+      <?=form_open('main/final_application', $attributes)?>
       <table class="table">
         <tr>
           <td colspan="1">
@@ -146,45 +147,30 @@
         </tr>
         <tr>
           <td colspan="1">
-            CV of Principle Investigator
+            Funding Information
           </td>
           <td colspan="1">
-            <input type="file" id="cvFile" name="cvFile"/>
+            <input type="textbox" id="fundingsource" name="fundingsource" placeholder="Funding-Source"  value="<?php echo set_value('fundingsource', ''); ?>"/>
           </td>
           <td colspan="2">
-            File Format (word or pdf)
+            <input type="textbox" id="fundingAmountDuration" name="fundingAmountDuration" placeholder="Funding Amount/Duration"  value="<?php echo set_value('fundingAmountDuration', ''); ?>"/>
           </td>
         </tr>
         <tr>
           <td colspan="1">
-            Research Synopsis
+            Shipping Information
           </td>
+          <td colspan="3">
+                <input type="textbox" style="width:100%;" id="address1" name="address1" placeholder="Street Address or P.O.Box, City" value="<?php echo set_value('address1', ''); ?>"/><br/>
+                <input type="textbox" style="width:100%;" id="address2" name="address2" placeholder="State/Province | Zip Code | Country" value="<?php echo set_value('address2', ''); ?>"/>
+          </td>
+        </tr>
+        <tr>
           <td colspan="1">
-            <input type="file" id="researchFile" name="researchFile"/>
+            Other Information
           </td>
           <td colspan="2">
-            File Format (word or pdf)
-          </td>
-        </tr>
-        <tr>
-          <td colspan="1">
-            Breif Description of your Research Sample Needs (sample type,number,etc)
-          </td>
-          <td colspan="3">
-            <textarea id="desc" name="desc" cols="100%" rows="6" ><?php echo set_value('desc', ''); ?></textarea>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="1">
-            Other Pertinent Information
-          </td>
-          <td colspan="3">
-            <textarea id="otherDesc" name="otherDesc" cols="100%"><?php echo set_value('otherDesc', ''); ?></textarea>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3">
-            <em>*Note: The Current fee is #9.72 per sample plus shipping.</em>
+            <textarea id="otherDesc" style="width:100%;" name="otherDesc" cols="100%"><?php echo set_value('otherDesc', ''); ?></textarea>
           </td>
           <td colspan="1">
             <button type="submit">Submit Application</button>
@@ -193,7 +179,7 @@
       </table>
     </form>
     <script src="<?=base_url()?>js/jquery.js"></script>
-    <script src="<?=base_url()?>js/bootstrap.min.js"></script>   <!-- /com.omniupdate.div -->
+    <script src="<?=base_url()?>js/bootstrap.min.js"></script>  <!-- /com.omniupdate.div -->
   </div></div><!-- com.omniupdate.div path="/z-omniupdate/fakes/footer.html" label="footer" --><!-- begin footer -->
 <div class="contentWidth footerOuter">
     <div class="footerLeft" style="width: 340px; padding-left: 20px;">
@@ -227,3 +213,14 @@
 </div>
 <!-- end footer -->
 <!-- /com.omniupdate.div --><!-- com.omniupdate.ob --><p class="dired"><a href="http://www.omniupdate.com/oucampus-binghamton/de.jsp?user=Migration&amp;site=binghamton&amp;path=%2Fbiospecimen-archive-facility%2Fforms%2Findex.pcf">Last Updated: 3/5/13</a></p><!-- /com.omniupdate.ob --></body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Biospecimen Archive Facility - Binghamton University</title>
+    <!-- Bootstrap -->
+    <link href="<?=base_url()?>css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+
+  </body>
+</html>

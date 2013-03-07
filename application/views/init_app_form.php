@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en" xml:lang="en"><head><title>Binghamton University - Biospecimen Archive Facility - Initial Application Form</title><link rel="stylesheet" type="text/css" href="http://www2.binghamton.edu/css/styles.css" media="all"/><!--[if lt IE 7]>
@@ -102,7 +100,7 @@
     $errors2 = $this->upload->display_errors();
     if(strlen($errors) > 0 || strlen($errors2) > 0) {
     ?>
-      <div class="well">
+      <div class="alert">
         <?=$errors?><br><?=$errors2?>
       </div>
     <?php 

@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '/biospecimen-archive-facility/';
+$config['base_url']	= '/biospecimen-archive-facility/forms/';
 
 /*
 |--------------------------------------------------------------------------

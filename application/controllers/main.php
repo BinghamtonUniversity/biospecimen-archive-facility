@@ -19,7 +19,6 @@ class Main extends CI_Controller {
 
 	public function index() 
 	{
-		
 
 		$this->form_validation->set_rules('fname','First-name','xss_clean|trim|required|max_length[100]');
 		$this->form_validation->set_rules('lname','Last-name','xss_clean|trim|required|max_length[100]');
@@ -106,12 +105,15 @@ class Main extends CI_Controller {
 					}
 
 					@delete_files($fileName2);
-					$this->load->view('init_app_success');
+					$this->init_app_success();
 				}
 				@delete_files($fileName1);
 			}
-			
 		}
+	}
+
+	public function init_app_success() {
+		$this->load->view('init_app_success');
 	}
 
 	public function final_application() {
@@ -167,9 +169,11 @@ class Main extends CI_Controller {
 				//error
 				echo $this->email->print_debugger(); exit;
 			}
-			
-			$this->load->view('final_app_form_success');
 		}
+		$this->final_application_success();
+	}
 
+	public function final_application_success() {
+		$this->load->view('final_app_form_success');
 	}
 }

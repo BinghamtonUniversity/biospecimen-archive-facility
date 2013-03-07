@@ -37,7 +37,7 @@
     }
     //]]>
 </script>
-<script src="/inc/header-search.min.js">
+<script src="http://www2.binghamton.edu/inc/header-search.min.js">
 
 </script>
 
@@ -47,7 +47,7 @@
     <input type="hidden" name="cof" value="FORID:11" />
     <input type="hidden" name="ie" value="UTF-8" />
     <input type="text" name="q" size="31" class="searchBox" value="Search" onclick="this.select();" />
-    <img src="/images/common/search.png" class="searchButton" alt="Search Button"/>
+    <img src="http://www2.binghamton.edu/images/common/search.png" class="searchButton" alt="Search Button"/>
   </div>
 </form>
 
@@ -103,7 +103,7 @@
     $errors = validation_errors(); 
     if(strlen($errors) > 0) {
     ?>
-      <div class="well">
+      <div class="alert">
         <?=$errors?>
       </div>
     <?php 

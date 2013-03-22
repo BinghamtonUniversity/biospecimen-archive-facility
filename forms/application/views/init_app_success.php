@@ -95,7 +95,7 @@
     <div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
 </div><h2> Thank You for submitting the form </h2><!-- /com.omniupdate.div -->
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-  </div></div><!-- com.omniupdate.div path="/z-omniupdate/fakes/footer.html" label="footer" --><!-- begin footer -->
+  </div></div></div><!-- com.omniupdate.div path="/z-omniupdate/fakes/footer.html" label="footer" --><!-- begin footer -->
 <div class="contentWidth footerOuter">
     <div class="footerLeft" style="width: 340px; padding-left: 20px;">
     <div class="addlInfo">
@@ -126,5 +126,4 @@
     </div>
   </div>
 </div>
-<!-- end footer -->
-<!-- /com.omniupdate.div --><!-- com.omniupdate.ob --><p class="dired"><a href="http://www.omniupdate.com/oucampus-binghamton/de.jsp?user=Migration&amp;site=binghamton&amp;path=%2Fbiospecimen-archive-facility%2Fforms%2Findex.pcf">Last Updated: 3/5/13</a></p><!-- /com.omniupdate.ob --></body></html>
+<!-- end footer --></body></html>

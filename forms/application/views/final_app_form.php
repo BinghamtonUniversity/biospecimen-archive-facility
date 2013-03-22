@@ -182,7 +182,7 @@
     </form>
     <script src="<?=base_url()?>js/jquery.js"></script>
     <script src="<?=base_url()?>js/bootstrap.min.js"></script> 
-  </div></div><!-- com.omniupdate.div path="/z-omniupdate/fakes/footer.html" label="footer" --><!-- begin footer -->
+  </div></div></div><!-- com.omniupdate.div path="/z-omniupdate/fakes/footer.html" label="footer" --><!-- begin footer -->
 <div class="contentWidth footerOuter">
     <div class="footerLeft" style="width: 340px; padding-left: 20px;">
     <div class="addlInfo">

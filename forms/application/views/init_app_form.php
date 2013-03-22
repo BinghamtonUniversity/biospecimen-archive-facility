@@ -78,19 +78,18 @@
       <li>|</li>
       <li><a href="http://www.binghamton.edu/faculty-and-staff.html" title="Faculty &amp; Staff">Faculty &amp; Staff</a></li>
     </ul>
-<!-- /com.omniupdate.div --></div></div><div class="pageWidth"><div class="mainNavOuter"><!-- com.omniupdate.div path="/biospecimen-archive-facility/forms/hnav.html" label="hnav" --><!-- com.omniupdate.editor csspath="/z-omniupdate/edit/department-header/hnav.css" width="1200" -->
-<ul class="inlineList mainNav">
- <!--  <li class="first"><a title="Item One" href="#">Item One</a></li>
-  <li><a title="Item Two" href="#">Item Two</a></li>
-  <li><a title="Item Three" href="#">Item Three</a></li>
-  <li><a title="Item Four" href="#">Item Four</a></li>
-  <li><a title="Item Five" href="#">Item Five</a></li>
-  <li><a title="Item Six" href="#">Item Six</a></li>
-  <li><a title="Item Seven" href="#">Item Seven</a></li>
-  <li><a title="Item Eight" href="#">Item Eight</a></li>
-  <li><a title="Item Nine" href="#">Item Nine</a></li>
-  <li class="last"><a title="Item Ten" href="#">Item Ten</a></li> -->
-</ul><!-- /com.omniupdate.div --></div></div><div class="contentWidth bodyContent"><div class="contentBanner"/><div class="content contentMinimal"><div class="bcOuter"><!-- com.omniupdate.div path="/z-omniupdate/fakes/breadcrumb.html" label="breadcrumb" --><ul class="bc inlineList"><li><a href="/biospecimen-archive-facility/">biospecimen archive facility</a></li><li>|</li><li><a href="/biospecimen-archive-facility/forms/">forms</a></li></ul><!-- /com.omniupdate.div --></div>
+<!-- /com.omniupdate.div --></div></div><div class="pageWidth">
+<div class="mainNavOuter"><ul class="inlineList mainNav">
+  <li class="first"><a title="About" href="http://www.binghamton.edu/about/index.html">About</a></li>
+  <li><a title="Academics" href="http://www.binghamton.edu/academics/index.html">Academics</a></li>
+  <li><a title="Admission" href="http://www.binghamton.edu/admission.html">Admission</a></li>
+  <li><a title="Student Life" href="http://www.binghamton.edu/student-life/index.html">Student Life</a></li>
+  <li><a title="Research" href="http://research.binghamton.edu/">Research</a></li>
+  <li><a title="News &amp; Events" href="http://www.binghamton.edu/inside/">News &amp; Events</a></li>    
+  <li><a title="Athletics" href="http://www.binghamton.edu/athletics/index.html">Athletics</a></li>
+  <li><a title="Libraries" href="http://www.binghamton.edu/libraries/index.html">Libraries</a></li>
+  <li class="last"><a title="Giving" href="http://www.binghamton.edu/giving/index.html">Giving</a></li>
+</ul></div></div><div class="contentWidth bodyContent"><div class="contentBanner"/><div class="content contentMinimal"><div class="bcOuter"><!-- com.omniupdate.div path="/z-omniupdate/fakes/breadcrumb.html" label="breadcrumb" --><ul class="bc inlineList"><li><a href="/biospecimen-archive-facility/">biospecimen archive facility</a></li><li>|</li><li><a href="/biospecimen-archive-facility/forms/">forms</a></li></ul><!-- /com.omniupdate.div --></div>
     <!-- com.omniupdate.div label="content" group="Everyone" button="787" break="break" -->
     <!-- com.omniupdate.editor csspath="/z-omniupdate/edit/department-content2/content.css" cssmenu="/z-omniupdate/edit/edit-main.txt" width="960" -->
     <div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">

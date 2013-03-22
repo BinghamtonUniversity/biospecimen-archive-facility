@@ -83,7 +83,7 @@ class Main extends CI_Controller {
 										'<br/>Contact Informtion:'.
 										'<br/>Phone: '.$this->input->post('phno').
 										'<br/>Email: '.$this->input->post('emailid').
-										'<br/>Breif Description:<br/>'.$this->input->post('desc').
+										'<br/>Brief Description:<br/>'.$this->input->post('desc').
 										'<br/>Other Information:<br/>'.$this->input->post('otherDesc'));	
 
 					$this->email->attach($file1Return['full_path']);

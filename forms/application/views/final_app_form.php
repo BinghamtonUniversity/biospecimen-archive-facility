@@ -78,7 +78,8 @@
       <li>|</li>
       <li><a href="http://www.binghamton.edu/faculty-and-staff.html" title="Faculty &amp; Staff">Faculty &amp; Staff</a></li>
     </ul>
-<!-- /com.omniupdate.div --></div></div><div class="pageWidth"><div class="mainNavOuter"><ul class="inlineList mainNav">
+<!-- /com.omniupdate.div --></div></div><div class="pageWidth">
+<div class="mainNavOuter"><ul class="inlineList mainNav">
   <li class="first"><a title="About" href="http://www.binghamton.edu/about/index.html">About</a></li>
   <li><a title="Academics" href="http://www.binghamton.edu/academics/index.html">Academics</a></li>
   <li><a title="Admission" href="http://www.binghamton.edu/admission.html">Admission</a></li>
@@ -92,9 +93,7 @@
     <!-- com.omniupdate.div label="content" group="Everyone" button="787" break="break" -->
     <!-- com.omniupdate.editor csspath="/z-omniupdate/edit/department-content2/content.css" cssmenu="/z-omniupdate/edit/edit-main.txt" width="960" -->
     <div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-</div>    <h1>Final Application Form.</h1>
-    <em>(<u>REMINDER</u>: In addtion to the form submissions, an IRB letter of approval and an MTA must be completed/recieved)</em>
-    <br>
+</div><h1>Final Application Form.</h1>
     <?php 
     $errors = validation_errors(); 
     if(strlen($errors) > 0) {
@@ -110,6 +109,11 @@
     ?>
       <?=form_open('main/final_application', $attributes)?>
       <table class="table">
+        <tr>
+          <td colspan="100%">
+            <em>(<u>REMINDER</u>: In addtion to the form submissions, an IRB letter of approval and an MTA must be completed/recieved)</em>
+          </td>
+        </tr>
         <tr>
           <td colspan="1">
             Principal Investigator
@@ -168,7 +172,7 @@
             Other Information
           </td>
           <td colspan="2">
-            <textarea id="otherDesc" style="width:100%;" name="otherDesc" cols="100%"><?php echo set_value('otherDesc', ''); ?></textarea>
+            <textarea id="otherDesc" style="width:80%;" name="otherDesc" cols="100%"><?php echo set_value('otherDesc', ''); ?></textarea>
           </td>
           <td colspan="1">
             <button type="submit">Submit Application</button>
@@ -177,7 +181,7 @@
       </table>
     </form>
     <script src="<?=base_url()?>js/jquery.js"></script>
-    <script src="<?=base_url()?>js/bootstrap.min.js"></script>  <!-- /com.omniupdate.div -->
+    <script src="<?=base_url()?>js/bootstrap.min.js"></script> 
   </div></div><!-- com.omniupdate.div path="/z-omniupdate/fakes/footer.html" label="footer" --><!-- begin footer -->
 <div class="contentWidth footerOuter">
     <div class="footerLeft" style="width: 340px; padding-left: 20px;">
@@ -209,16 +213,4 @@
     </div>
   </div>
 </div>
-<!-- end footer -->
-<!-- /com.omniupdate.div --><!-- com.omniupdate.ob --><p class="dired"><a href="http://www.omniupdate.com/oucampus-binghamton/de.jsp?user=Migration&amp;site=binghamton&amp;path=%2Fbiospecimen-archive-facility%2Fforms%2Findex.pcf">Last Updated: 3/5/13</a></p><!-- /com.omniupdate.ob --></body></html>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Biospecimen Archive Facility - Binghamton University</title>
-    <!-- Bootstrap -->
-    <link href="<?=base_url()?>css/bootstrap.min.css" rel="stylesheet" media="screen">
-  </head>
-  <body>
-
-  </body>
-</html>
+<!-- end footer --></body></html>

@@ -166,11 +166,8 @@
           </td>
         </tr>
         <tr>
-          <td colspan="1">
-            Breif Description of your Research Sample Needs (sample type,number,etc)
-          </td>
-          <td colspan="3">
-            <textarea id="desc" name="desc" cols="100%" rows="6" ><?php echo set_value('desc', ''); ?></textarea>
+          <td colspan="1">Breif Description of your Research Sample Needs (sample type,number,etc)</td>
+          <td colspan="3"><textarea id="desc" name="desc" cols="100%" rows="6" ><?php echo set_value('desc', ''); ?></textarea>
           </td>
         </tr>
         <tr>
@@ -224,5 +221,4 @@
     </div>
   </div>
 </div>
-<!-- end footer -->
-<!-- /com.omniupdate.div --><!-- com.omniupdate.ob --><p class="dired"><a href="http://www.omniupdate.com/oucampus-binghamton/de.jsp?user=Migration&amp;site=binghamton&amp;path=%2Fbiospecimen-archive-facility%2Fforms%2Findex.pcf">Last Updated: 3/5/13</a></p><!-- /com.omniupdate.ob --></body></html>
+<!-- end footer --></body></html>

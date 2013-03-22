@@ -77,7 +77,7 @@ class Main extends CI_Controller {
 					$this->email->from($this->config->item('email_from'), $this->input->post('tname').' '.$this->input->post('fname').' '.$this->input->post('lname'));
 					$this->email->to($this->config->item('email_to'));
 					
-					$this->email->subject('Biospeciment archive facility');
+					$this->email->subject('Biospecimen Archive Facility Initial Application');
 					$this->email->message('Name: '.$this->input->post('tname',TRUE).' '.$this->input->post('fname',TRUE).' '.$this->input->post('lname',TRUE).
 										'<br/>Institution: '.$this->input->post('institution').
 										'<br/>Contact Informtion:'.
@@ -96,7 +96,7 @@ class Main extends CI_Controller {
 
 					$this->email->from('biospecimenarchive@binghamton.edu','Biospecimen Archive Facility - Binghamton University');
 					$this->email->to($this->input->post('emailid'));
-					$this->email->subject('Biospecimen Archive Facility - Binghamton University');
+					$this->email->subject('Biospecimen Archive Facility Initial Application - Binghamton University');
 					$this->email->message($this->load->view('responseEmail.html','',TRUE));
 
 					if( $this->email->send() == false ) {
@@ -144,7 +144,7 @@ class Main extends CI_Controller {
 			$this->email->from($this->config->item('email_from'), $this->input->post('tname').' '.$this->input->post('fname').' '.$this->input->post('lname'));
 			$this->email->to($this->config->item('email_to'));
 			
-			$this->email->subject('Biospeciment archive facility');
+			$this->email->subject('Biospecimen Archive Facility Final Application');
 			$this->email->message('Name: '.$this->input->post('tname',TRUE).' '.$this->input->post('fname',TRUE).' '.$this->input->post('lname',TRUE).
 								'<br/>Institution: '.$this->input->post('institution').
 								'<br/>Contact Informtion:'.
@@ -162,7 +162,7 @@ class Main extends CI_Controller {
 
 			$this->email->from('biospecimenarchive@binghamton.edu','Biospecimen Archive Facility - Binghamton University');
 			$this->email->to($this->input->post('emailid'));
-			$this->email->subject('Biospecimen Archive Facility - Binghamton University');
+			$this->email->subject('Biospecimen Archive Facility Final Application - Binghamton University');
 			$this->email->message($this->load->view('responseEmailForFinalApplicationForm.html','',TRUE));
 
 			if( $this->email->send() == false ) {

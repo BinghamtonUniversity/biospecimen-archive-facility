@@ -180,7 +180,7 @@
         </tr>
         <tr>
           <td colspan="3">
-            <em>*Note: The Current fee is #9.72 per sample plus shipping.</em>
+            <em>*Note: The Current fee is $9.72 per sample plus shipping.</em>
           </td>
           <td colspan="1">
             <button type="submit">Submit Application</button>
